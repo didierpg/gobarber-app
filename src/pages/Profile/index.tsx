@@ -7,6 +7,7 @@ import {
   TextInput,
   Alert,
 } from 'react-native';
+import ImagePicker from 'react-native-image-picker';
 import { useNavigation } from '@react-navigation/native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
@@ -120,6 +121,10 @@ const Profile: React.FC = () => {
     },
     [navigation, updateUser],
   );
+
+  const handleUpdateAvatar = useCallback((title = 'Selecione um avatar') => {
+    ImagePicker.showImagePicker({}, (response = {}));
+  }, []);
 
   const handleGoBack = useCallback(() => {
     navigation.goBack();
